@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.mybatis.example.BlogMapper">
+    <insert id="insertCar">
+        insert into t_car(id, car_num, brand, guide_price, produce_time, car_type)
+        values (null,'1003','Tesla',26,'2019-03-15','新能源')
+    </insert>
+
+    <insert id="insertCarMap">
+        insert into t_car(id, car_num, brand, guide_price, produce_time, car_type)
+        VALUES (null,#{carNum},#{brand},#{producePrice},#{produceTime},#{carType})
+    </insert>
+</mapper>
