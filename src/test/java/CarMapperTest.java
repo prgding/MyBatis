@@ -1,3 +1,4 @@
+import me.ding.pojo.Car;
 import me.ding.utils.SqlSessionUtil;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -46,6 +47,15 @@ public class CarMapperTest {
 		map.put("carType", "燃油车");
 		SqlSession sqlSession = SqlSessionUtil.openSession();
 		sqlSession.insert("insertCar", map);
+		sqlSession.commit();
+		sqlSession.close();
+	}
+
+	@Test
+	public void testPojo(){
+		Car car = new Car("111", "Porsche", 100.0, "2022-02-15", "燃油车");
+		SqlSession sqlSession = SqlSessionUtil.openSession();
+		sqlSession.insert("insertPojo", car);
 		sqlSession.commit();
 		sqlSession.close();
 	}
