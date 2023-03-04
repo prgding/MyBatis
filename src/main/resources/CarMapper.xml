@@ -5,16 +5,40 @@
 <mapper namespace="org.mybatis.example.BlogMapper">
     <insert id="insertCar">
         insert into t_car(id, car_num, brand, guide_price, produce_time, car_type)
-        values (null,'1003','Tesla',26,'2019-03-15','新能源')
+        values (null, '1003', 'Tesla', 26, '2019-03-15', '新能源')
     </insert>
 
     <insert id="insertCarMap">
         insert into t_car(id, car_num, brand, guide_price, produce_time, car_type)
-        VALUES (null,#{carNum},#{brand},#{producePrice},#{produceTime},#{carType})
+        VALUES (null, #{carNum}, #{brand}, #{producePrice}, #{produceTime}, #{carType})
     </insert>
-    
+
     <insert id="insertPojo">
         insert into t_car(id, car_num, brand, guide_price, produce_time, car_type)
-        VALUES (null,#{carNum},#{brand},#{producePrice},#{produceTime},#{carType})
+        VALUES (null, #{carNum}, #{brand}, #{producePrice}, #{produceTime}, #{carType})
     </insert>
+
+    <delete id="deleteById">
+        delete
+        from t_car
+        where id = #{id}
+    </delete>
+
+    <update id="updateById">
+        update t_car
+        set car_num      = #{carNum},
+            brand        = #{brand},
+            guide_price  = #{producePrice},
+            produce_time = #{produceTime},
+            car_type     = #{carType}
+        where id = #{id}
+    </update>
+
+    <select id="selectById" resultType="me.ding.pojo.Car">
+        select * from t_car where id = #{id}
+    </select>
+    
+    <select id="selectAll" resultType="me.ding.pojo.Car">
+        select * from t_car;
+    </select>
 </mapper>

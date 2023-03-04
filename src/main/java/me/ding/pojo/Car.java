@@ -1,18 +1,28 @@
 package me.ding.pojo;
 
 public class Car {
+	private Long id;
 	private String carNum;
 	private String brand;
 	private Double producePrice;
 	private String produceTime;
 	private String carType;
 
-	public Car(String carNum, String brand, Double producePrice, String produceTime, String carType) {
+	public Car(Long id, String carNum, String brand, Double producePrice, String produceTime, String carType) {
+		this.id = id;
 		this.carNum = carNum;
 		this.brand = brand;
 		this.producePrice = producePrice;
 		this.produceTime = produceTime;
 		this.carType = carType;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public Long getId() {
+		return id;
 	}
 
 	public String getCarNum() {
@@ -58,7 +68,8 @@ public class Car {
 	@Override
 	public String toString() {
 		return "Car{" +
-				"carNum='" + carNum + '\'' +
+				"id=" + id +
+				", carNum='" + carNum + '\'' +
 				", brand='" + brand + '\'' +
 				", producePrice=" + producePrice +
 				", produceTime='" + produceTime + '\'' +
